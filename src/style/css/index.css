@@ -129,3 +129,28 @@ body {
   z-index: 10;
 }
 
+<<<<<<< HEAD
+=======
+.minimap canvas {
+  border: 2px solid white;
+}
+
+.options-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: white;
+  pointer-events: all;
+}
+
+.options-box label {
+  display: block;
+  cursor: pointer;
+}
+
+>>>>>>> a4995f9dc9c3f0d76d4623567bcef2da7d739d0c

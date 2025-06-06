@@ -11,9 +11,12 @@ import Furniture from '../Furniture/Furniture';
 import Camera from '../Camera/Camera';
 import Player from '../Player/Player';
 import Lights from '../Lights/Lights';
+import AmbientSound from '../AmbientSound/AmbientSound';
+import DustParticles from '../DustParticles/DustParticles';
+import PostProcessing from '../PostProcessing/PostProcessing';
 
 
-const App = () => {
+const App = ({ soundscape = false, dust = false, postProcessing = false }) => {
   const [night, setNight] = useState(true)
   const [performance, setPerformance] = useState(true)
 
@@ -49,8 +52,9 @@ const App = () => {
   return (
 
     <>
-      <Canvas 
-        onCreated={({ gl }) => { 
+      {soundscape && <AmbientSound enabled={soundscape} />}
+      <Canvas
+        onCreated={({ gl }) => {
           gl.shadowMap.enabled = true
           gl.shadowMap.type = THREE.PCFSoftShadowMap
         }}
@@ -79,13 +83,15 @@ const App = () => {
              
         <Physics gravity={[0, -30, 0]}>
           <Suspense fallback={null}>
-            <Ground /> 
-            <Building />            
-            <Art />  
-            <Furniture />               
-          </Suspense>      
-          <Player />       
+            <Ground />
+            <Building />
+            <Art />
+            <Furniture />
+          </Suspense>
+          <Player />
         </Physics>
+        {dust && <DustParticles />}
+        {postProcessing && <PostProcessing />}
         <Stats showPanel={0} className="fps" />
       </Canvas>
     </>
