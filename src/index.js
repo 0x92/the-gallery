@@ -27,18 +27,12 @@ const Overlay = () => {
   })  
 
   return (
-<<<<<<< HEAD
     <>
-      <App />
-=======
-    <PlayerStateProvider>
       <App
         soundscape={soundscape}
         dust={dust}
         postProcessing={postProcessing}
       />
-      <Minimap />
->>>>>>> a4995f9dc9c3f0d76d4623567bcef2da7d739d0c
       <div className={`overlay ${ready ? 'transparent' : 'not-ready'}`}>
         {!ready && <div className="start">Click to Explore</div>}
         <div className="title">LUX ET ARS - GALLERY</div>
