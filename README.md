@@ -1,4 +1,4 @@
-# The Gallery
+# LUX ET ARS - GALLERY
 
 ![app preview](./public/assets/Images/The-Gallery-Preview.jpg)
 
