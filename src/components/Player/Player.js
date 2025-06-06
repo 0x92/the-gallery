@@ -1,14 +1,12 @@
 import * as THREE from 'three';
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSphere } from 'use-cannon';
 import { useThree, useFrame } from 'react-three-fiber';
 import PointerLockControls from '../PointerLockControls/PointerLockControls'
 import usePlayerControls from '../usePlayerControls/usePlayerControls'
-import { PlayerStateContext } from '../PlayerStateContext'
 
 const Player = (props) => {
   const { camera } = useThree()
-  const { setPlayerState } = useContext(PlayerStateContext)
   const { 
     forward, 
     backward, 
@@ -35,10 +33,6 @@ const Player = (props) => {
   useFrame(() => {
     //copy position of our physical sphere
     camera.position.copy(ref.current.position)
-    setPlayerState({
-      position: ref.current.position.toArray(),
-      rotationY: camera.rotation.y
-    })
 
     const frontVector = new THREE.Vector3(0, 0, Number(backward) - Number(forward))
     const sideVector = new THREE.Vector3(Number(left) - Number(right), 0, 0)

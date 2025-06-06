@@ -129,7 +129,3 @@ body {
   z-index: 10;
 }
 
-.minimap canvas {
-  border: 2px solid white;
-}
-

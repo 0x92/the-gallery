@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react"
 import ReactDOM from 'react-dom';
 import './style/css/index.css';
 import App from './components/App/App';
-import Minimap from './components/Minimap/Minimap';
-import { PlayerStateProvider } from './components/PlayerStateContext';
 import reportWebVitals from './reportWebVitals';
 import Loading from './components/Loading/Loading';
 
@@ -26,9 +24,8 @@ const Overlay = () => {
   })  
 
   return (
-    <PlayerStateProvider>
+    <>
       <App />
-      <Minimap />
       <div className={`overlay ${ready ? 'transparent' : 'not-ready'}`}>
         {!ready && <div className="start">Click to Explore</div>}
         <div className="title">LUX ET ARS - GALLERY</div>
@@ -41,7 +38,7 @@ const Overlay = () => {
       style={{ pointerEvents: ready ? "none" : "all" }} 
       />
       <Loading />
-    </PlayerStateProvider>
+      </>
   )
 }
 
