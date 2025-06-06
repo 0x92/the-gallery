@@ -61,14 +61,25 @@ const Art = () => {
          <Display position={[-20, 5, 25]} size={[1, 18, 11]} />
 
          {/* girl portrait */}
-         <Picture 
+        <Picture
             url={process.env.PUBLIC_URL + "/assets/3D/Girl/scene.gltf"}
             scale={[6.5, 6.5, 6.5]}
-            position={[-34.6, 10, 12]}            
+            position={[-34.6, 10, 12]}
             rotation={[-Math.PI / 2, 0, 0]}
             metalness={0.7}
             roughness={0.8}
         />
+
+        {/* new room portrait */}
+        <Picture
+            url={process.env.PUBLIC_URL + "/assets/3D/Portrait/scene.gltf"}
+            scale={[4, 4, 4]}
+            position={[19.3, 7, 100]}
+            rotation={[0, -Math.PI, 0]}
+            metalness={0.9}
+            roughness={0.9}
+        />
+        <Display position={[20, 5, 100]} size={[1, 18, 11]} />
          
     </>
 

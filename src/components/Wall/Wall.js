@@ -18,30 +18,30 @@ const Wall = ({
 
     const { scene } = useLoader(GLTFLoader, modelUrl, draco("https://www.gstatic.com/draco/versioned/decoders/1.4.0/"));
 
-    const [refFront] = useBox(() => ({ 
-        type: "static", 
+    const [refFront] = useBox(() => ({
+        type: "static",
         args: [70, 50, 1],
-        position: [0, 0, -17],
+        position: [position[0], position[1], position[2] - 17],
     }));
-    const [refBack] = useBox(() => ({ 
-        type: "static", 
+    const [refBack] = useBox(() => ({
+        type: "static",
         args: [70, 50, 1],
-        position: [0, 0, 44],
+        position: [position[0], position[1], position[2] + 44],
     }));
-    const [refL] = useBox(() => ({ 
-        type: "static", 
+    const [refL] = useBox(() => ({
+        type: "static",
         args: [1, 50, 80],
-        position: [-39.5, 0, 0],
+        position: [position[0] - 39.5, position[1], position[2]],
     }));
-    const [refR] = useBox(() => ({ 
-        type: "static", 
+    const [refR] = useBox(() => ({
+        type: "static",
         args: [1, 50, 80],
-        position: [39.5, 0, 0],
+        position: [position[0] + 39.5, position[1], position[2]],
     }));
-    const [refTop] = useBox(() => ({ 
-        type: "static", 
+    const [refTop] = useBox(() => ({
+        type: "static",
         args: [150, 1, 150],
-        position: [0, 30, 0],
+        position: [position[0], position[1] + 30, position[2]],
     }));
 
     texture = useMemo(() => new THREE.TextureLoader().load(mapUrl), [mapUrl]);
