@@ -30,7 +30,7 @@ const Ground = () => {
     grassMap = useMemo(() => new THREE.TextureLoader().load(process.env.PUBLIC_URL + "/assets/Textures/Grass/GrassGreenTexture0002.jpg"), []);
     grassMap.wrapS = THREE.RepeatWrapping;
     grassMap.wrapT = THREE.RepeatWrapping;
-    grassMap.repeat.set(70, 70);
+    grassMap.repeat.set(140, 140);
 
     return (
         <>
@@ -43,12 +43,12 @@ const Ground = () => {
             
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 22]} >
                 <Reflector>
-                    <planeBufferGeometry attach="geometry" args={[70, 75]}  />
+                    <planeBufferGeometry attach="geometry" args={[140, 150]}  />
                 </Reflector>
             </mesh>
 
             <mesh ref={ref} receiveShadow>
-                <planeBufferGeometry attach="geometry" args={[70, 75]} />
+                <planeBufferGeometry attach="geometry" args={[140, 150]} />
                 <meshPhysicalMaterial 
                     attach="material"
                     reflectivity={0}
