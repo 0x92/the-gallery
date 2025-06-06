@@ -26,6 +26,15 @@ const App = () => {
         case "KeyP":
           setPerformance(!performance)
           return;
+        case "KeyF":
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            }
+          }
+          return;
         default: return;
       }
     }
