@@ -26,11 +26,13 @@ const Overlay = () => {
   return (
     <>
       <App />
-      <div className={ready ? "" : "overlay"}>
-        <div className={"start"}>Click to Explore</div>
-        <img className={ready ? "" : "controlsL"} src={process.env.PUBLIC_URL + "/assets/Images/ControlsL.png"} alt="Move: WASD   Jump: SPACE Run: SHIFT" />
-        <img className={ready ? "" : "controlsR"} src={process.env.PUBLIC_URL + "/assets/Images/ControlsR.png"} alt="Look: MOUSE" />
-        <img className={ready ? "" : "controlsTR"} src={process.env.PUBLIC_URL + "/assets/Images/ControlsTR.png"} alt="Toggle Performance: P Toggle Night Mode: N" />
+      <div className={`overlay ${ready ? 'transparent' : 'not-ready'}`}>
+        {!ready && <div className="start">Click to Explore</div>}
+        <div className="title">LUX ET ARS - GALLERY</div>
+        <div className="controls-box">
+          <p>Move: WASD &nbsp; Jump: SPACE &nbsp; Run: SHIFT</p>
+          <p>Night Mode: N &nbsp; Toggle Performance: P</p>
+        </div>
       </div>
       <div className="dot" 
       style={{ pointerEvents: ready ? "none" : "all" }} 
