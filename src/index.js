@@ -31,7 +31,7 @@ const Overlay = () => {
         <div className="title">LUX ET ARS - GALLERY</div>
         <div className="controls-box">
           <p>Move: WASD &nbsp; Jump: SPACE &nbsp; Run: SHIFT</p>
-          <p>Night Mode: N &nbsp; Toggle Performance: P</p>
+          <p>Night Mode: N &nbsp; Toggle Performance: P &nbsp; Fullscreen: F</p>
         </div>
       </div>
       <div className="dot" 
