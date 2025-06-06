@@ -129,8 +129,6 @@ body {
   z-index: 10;
 }
 
-<<<<<<< HEAD
-=======
 .minimap canvas {
   border: 2px solid white;
 }
@@ -152,5 +150,3 @@ body {
   display: block;
   cursor: pointer;
 }
-
->>>>>>> a4995f9dc9c3f0d76d4623567bcef2da7d739d0c
