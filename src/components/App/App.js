@@ -8,6 +8,7 @@ import Building from '../Building/Building';
 import Ground from '../Ground/Ground';
 import Art from '../Art/Art';
 import Furniture from '../Furniture/Furniture';
+import MiniMap from '../MiniMap/MiniMap';
 import Camera from '../Camera/Camera';
 import Player from '../Player/Player';
 import Lights from '../Lights/Lights';
@@ -79,16 +80,20 @@ const App = () => {
              
         <Physics gravity={[0, -30, 0]}>
           <Suspense fallback={null}>
-            <Ground /> 
-            <Building />            
-            <Art />  
-            <Furniture />               
-          </Suspense>      
+            <Ground />
+            <Building />
+            <Art />
+            <Furniture />
+            <Building offset={[80,0,0]} />
+            <Art offset={[80,0,0]} />
+            <Furniture offset={[80,0,0]} />
+          </Suspense>
           <Player />       
         </Physics>
-        <Stats showPanel={0} className="fps" />
-      </Canvas>
-    </>
+          <Stats showPanel={0} className="fps" />
+          <MiniMap />
+        </Canvas>
+      </>
   );
 }
 

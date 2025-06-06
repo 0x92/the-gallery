@@ -1,25 +1,25 @@
 import React from 'react';
 import Bench from '../Bench/Bench';
 
-const Furniture = () => {
+const Furniture = ({ offset = [0, 0, 0] }) => {
   
     return (
         <>
-            <Bench 
+            <Bench
               url={process.env.PUBLIC_URL + "/assets/3D/Bench/scene.gltf"}
               scale={[0.11, 0.11, 0.11]}
-              position={[0, 0, 3]}
+              position={[0 + offset[0], 0 + offset[1], 3 + offset[2]]}
               rotation={[0, 0, 0]}
               physicsSize={[10, 3, 1]}
-              physicsPosition={[0, 0, 3]}
+              physicsPosition={[0 + offset[0], 0 + offset[1], 3 + offset[2]]}
             />
             <Bench
               url={process.env.PUBLIC_URL + "/assets/3D/SmallBench/scene.gltf"}
               scale={[0.09, 0.09, 0.09]}
-              position={[0, 1.5, 21.5]}
+              position={[0 + offset[0], 1.5 + offset[1], 21.5 + offset[2]]}
               rotation={[0, 0, 0]}
               physicsSize={[8, 3, 1]}
-              physicsPosition={[0, 0, 21.5]}             
+              physicsPosition={[0 + offset[0], 0 + offset[1], 21.5 + offset[2]]}
             />
         </>
     );

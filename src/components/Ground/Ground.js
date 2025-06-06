@@ -43,12 +43,12 @@ const Ground = () => {
             
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.1, 22]} >
                 <Reflector>
-                    <planeBufferGeometry attach="geometry" args={[70, 75]}  />
+                    <planeBufferGeometry attach="geometry" args={[240, 75]}  />
                 </Reflector>
             </mesh>
 
             <mesh ref={ref} receiveShadow>
-                <planeBufferGeometry attach="geometry" args={[70, 75]} />
+                <planeBufferGeometry attach="geometry" args={[240, 75]} />
                 <meshPhysicalMaterial 
                     attach="material"
                     reflectivity={0}

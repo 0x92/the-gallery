@@ -3,58 +3,59 @@ import Wall from '../Wall/Wall';
 import WindowFrame from '../WindowFrame/WindowFrame';
 import Glass from '../Glass/Glass';
 
-const Building = () => {
+const Building = ({ offset = [0, 0, 0] }) => {
   
     return (
         <>
-            <Wall 
+            <Wall
                 position={[0, 0, -13.5]}
+                offset={offset}
                 modelUrl={process.env.PUBLIC_URL + "/assets/3D/Wall/scene.gltf"}
                 mapUrl={process.env.PUBLIC_URL + "/assets/3D/Wall/Textures/White_Wall.jpg"}
                 normalMapUrl={process.env.PUBLIC_URL + "/assets/3D/Wall/Textures/White_Wall_NORMAL.jpg"}
             />
 
             {/* side windows */}
-            <WindowFrame 
+            <WindowFrame
                 scale={[0.008, 0.008, 0.008]}
-                position={[6.5, 8.5, -15]}
+                position={[6.5 + offset[0], 8.5 + offset[1], -15 + offset[2]]}
                 rotation={[0, Math.PI ,0]}
                 modelUrl={process.env.PUBLIC_URL + "/assets/3D/WindowNoGlassL/scene.gltf"}
                 mapUrl={process.env.PUBLIC_URL + "/assets/3D/WindowNoGlassL/Textures/Material_49_baseColor.png"}
             />
-            <WindowFrame 
+            <WindowFrame
                 scale={[0.008, 0.008, 0.008]}
-                position={[-6.5, 8.5, -15]}
+                position={[-6.5 + offset[0], 8.5 + offset[1], -15 + offset[2]]}
                 rotation={[0, Math.PI ,0]}
                 modelUrl={process.env.PUBLIC_URL + "/assets/3D/WindowNoGlassR/scene.gltf"}
                 mapUrl={process.env.PUBLIC_URL + "/assets/3D/WindowNoGlassR/Textures/Material_49_baseColor.png"}
             />
-            <Glass            
+            <Glass
                 scale={[0.008, 0.008, 0.008]}
-                position={[6.5, 8.5, -15]}
+                position={[6.5 + offset[0], 8.5 + offset[1], -15 + offset[2]]}
                 rotation={[0, 0, 0]}
-                url={process.env.PUBLIC_URL + "/assets/3D/WindowGlassL/scene.gltf"}                        
+                url={process.env.PUBLIC_URL + "/assets/3D/WindowGlassL/scene.gltf"}
             />
-            <Glass            
+            <Glass
                 scale={[0.008, 0.008, 0.008]}
-                position={[-6.5, 8.5, -15]}
+                position={[-6.5 + offset[0], 8.5 + offset[1], -15 + offset[2]]}
                 rotation={[0, 0, 0]}
-                url={process.env.PUBLIC_URL + "/assets/3D/WindowGlassR/scene.gltf"}                        
+                url={process.env.PUBLIC_URL + "/assets/3D/WindowGlassR/scene.gltf"}
             />
 
             {/* roof */}
-            <WindowFrame 
+            <WindowFrame
                 scale={[2.7, 2.7, 2.7]}
-                position={[0, 27, 13.2]}
+                position={[0 + offset[0], 27 + offset[1], 13.2 + offset[2]]}
                 rotation={[0, 0, 0]}
                 modelUrl={process.env.PUBLIC_URL + "/assets/3D/RoofNoGlass/scene.gltf"}
                 mapUrl={process.env.PUBLIC_URL + "/assets/3D/RoofNoGlass/Textures/Material_49_baseColor.png"}
             />
-            <Glass            
+            <Glass
                 scale={[2.7, 2.7, 2.7]}
-                position={[0, 27, 13.2]}
+                position={[0 + offset[0], 27 + offset[1], 13.2 + offset[2]]}
                 rotation={[0, 0, 0]}
-                url={process.env.PUBLIC_URL + "/assets/3D/RoofGlass/scene.gltf"}                        
+                url={process.env.PUBLIC_URL + "/assets/3D/RoofGlass/scene.gltf"}
             />
         </>
 

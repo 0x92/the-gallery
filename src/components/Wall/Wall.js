@@ -5,43 +5,44 @@ import * as THREE from 'three';
 import { useBox } from "use-cannon";
 import { draco } from 'drei';
 
-const Wall = ({ 
+const Wall = ({
     scale,
     position,
     rotation,
     modelUrl,
     mapUrl,
-    normalMapUrl 
+    normalMapUrl,
+    offset = [0, 0, 0]
 }) => {
     let texture, normal;
     const size = 20;
 
     const { scene } = useLoader(GLTFLoader, modelUrl, draco("https://www.gstatic.com/draco/versioned/decoders/1.4.0/"));
 
-    const [refFront] = useBox(() => ({ 
-        type: "static", 
+    const [refFront] = useBox(() => ({
+        type: "static",
         args: [70, 50, 1],
-        position: [0, 0, -17],
+        position: [offset[0] + 0, offset[1] + 0, offset[2] - 17],
     }));
-    const [refBack] = useBox(() => ({ 
-        type: "static", 
+    const [refBack] = useBox(() => ({
+        type: "static",
         args: [70, 50, 1],
-        position: [0, 0, 44],
+        position: [offset[0] + 0, offset[1] + 0, offset[2] + 44],
     }));
-    const [refL] = useBox(() => ({ 
-        type: "static", 
+    const [refL] = useBox(() => ({
+        type: "static",
         args: [1, 50, 80],
-        position: [-39.5, 0, 0],
+        position: [offset[0] - 39.5, offset[1] + 0, offset[2] + 0],
     }));
-    const [refR] = useBox(() => ({ 
-        type: "static", 
+    const [refR] = useBox(() => ({
+        type: "static",
         args: [1, 50, 80],
-        position: [39.5, 0, 0],
+        position: [offset[0] + 39.5, offset[1] + 0, offset[2] + 0],
     }));
-    const [refTop] = useBox(() => ({ 
-        type: "static", 
+    const [refTop] = useBox(() => ({
+        type: "static",
         args: [150, 1, 150],
-        position: [0, 30, 0],
+        position: [offset[0] + 0, offset[1] + 30, offset[2] + 0],
     }));
 
     texture = useMemo(() => new THREE.TextureLoader().load(mapUrl), [mapUrl]);
@@ -73,11 +74,17 @@ const Wall = ({
                 <mesh ref={refR}/>
                 <mesh ref={refBack}/>
                 <mesh ref={refTop}/>
-                <primitive                   
-                    position={position}
+                <primitive
+                    position={[
+                        position ? position[0] + offset[0] : offset[0],
+                        position ? position[1] + offset[1] : offset[1],
+                        position ? position[2] + offset[2] : offset[2],
+                    ]}
+                    rotation={rotation}
+                    scale={scale}
                     object={scene}
                     dispose={null}
-                /> 
+                />
             </>
     )
   }
